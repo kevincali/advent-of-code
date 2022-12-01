@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -25,20 +26,13 @@ func calcElveCalories(input string) []int {
 	return sum
 }
 
-func findMax(elveCalories []int) int {
-	max := elveCalories[0]
-
-	for _, caloriesSum := range elveCalories {
-		if caloriesSum > max {
-			max = caloriesSum
-		}
-	}
-
-	return max
-}
-
 func main() {
 	elveCalories := calcElveCalories(input)
-	max := findMax(elveCalories)
-	fmt.Printf("Highest amount of calories: %d\n", max)
+
+	sort.Sort(sort.Reverse(sort.IntSlice(elveCalories)))
+
+	fmt.Printf("Highest amount of calories: %d\n", elveCalories[0])
+
+	topThree := elveCalories[0] + elveCalories[1] + elveCalories[2]
+	fmt.Printf("Sum of the top three elves: %d\n", topThree)
 }
