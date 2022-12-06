@@ -13,9 +13,6 @@ func partTwo(data string) int {
 }
 
 func main() {
-	partOneResult := partOne(input)
-	partTwoResult := partTwo(input)
-
-	fmt.Println("Result of part one is", partOneResult)
-	fmt.Println("Result of part two is", partTwoResult)
+	fmt.Println("Result of part one is", partOne(example))
+	fmt.Println("Result of part two is", partTwo(example))
 }
